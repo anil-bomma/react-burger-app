@@ -38,6 +38,12 @@ class App extends Component {
     });
   }
 
+  handleChangeClick = (args) => {
+    this.setState({
+      twoWay: args
+    });
+  }
+
   render() {
     const personMap = this.state.persons.map((item) => (
       <Person key={item.name} name={item.name}> map object</Person>
@@ -64,7 +70,7 @@ class App extends Component {
         <hr></hr>
         <h3>Child to parent and two way data-binding</h3>
         {this.state.twoWay}
-        <TwoWayDataBinding handleChange={this.handleChange} twoWay={this.state.twoWay} />
+        <TwoWayDataBinding handleChangeClick={this.handleChangeClick} handleChange={this.handleChange} twoWay={this.state.twoWay} />
       </div>
     );
   }
