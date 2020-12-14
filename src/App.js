@@ -1,4 +1,5 @@
 import Person from "./Person/Person";
+import Counter from "./Person/Counter";
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <Person name="Ab">Props Children</Person>
       <Person name="Ac"/>
       <Person name="Ad"/>
-
+      <hr />
+      <Counter name="Counter Stricker: "/>
     </div>
   );
 }
