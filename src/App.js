@@ -6,9 +6,19 @@ import Counter from "./Person/Counter";
 
 class App extends Component {
 
+  // when ever state changes react will re-redner the dom with new state
   state = {
     persons: [{ name: "BB" }, { name: "Bc" }],
+    name: "asas",
+    i: 0
   };
+
+  switchNameHandler = () => {
+    this.setState({
+      persons: [{ name: "CB" + this.state.i }, { name: "Bc" }],
+      i: this.state.i + 1
+    });
+  }
 
   render() {
     const personMap = this.state.persons.map((item) => (
@@ -27,6 +37,7 @@ class App extends Component {
         <Counter name="Counter Stricker: " />
         <hr />
         {personMap}
+        <button onClick={this.switchNameHandler}>Change Name</button>
       </div>
     );
   }
