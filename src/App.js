@@ -22,6 +22,14 @@ class App extends Component {
     });
   }
 
+  switchNameWithArgs = (args) => {
+    console.log(args)
+    this.setState({
+      persons: [{ name: args + " " + this.state.i }, { name: "Bc" }],
+      i: this.state.i + 1
+    });
+  }
+
   render() {
     const personMap = this.state.persons.map((item) => (
       <Person key={item.name} name={item.name}> map object</Person>
@@ -32,7 +40,7 @@ class App extends Component {
         <h1>Hello World!!</h1>
         <p>This is working really</p>
         <hr />
-        <Person name="Ab">Props Children</Person>
+        <Person name="Ab" click={this.switchNameWithArgs}>Props Children and child to patent click me!!</Person>
         <Person name="Ac" />
         <Person name="Ad" />
         <hr />
@@ -40,6 +48,8 @@ class App extends Component {
         <hr />
         {personMap}
         <button onClick={this.switchNameHandler}>Change Name</button>
+        <button onClick={this.switchNameWithArgs.bind(this, "args1")}>Args 1</button>
+        <button onClick={() => this.switchNameWithArgs("args2")}>Args 2</button>
         <hr />
         <PersonHook></PersonHook>
       </div>
