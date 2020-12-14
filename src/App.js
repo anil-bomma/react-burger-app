@@ -6,7 +6,10 @@ function App() {
       <h1>Hello World!!</h1>
       <p>This is working really</p>
       <hr />
-      <Person />
+      <Person name="Ab">Props Children</Person>
+      <Person name="Ac"/>
+      <Person name="Ad"/>
+
     </div>
   );
 }
