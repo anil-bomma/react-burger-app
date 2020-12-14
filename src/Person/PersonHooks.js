@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const PersonHook = () => {
 
+    // setState will merge and useState will replace soln: use multiple useState
     const [personState, setPersonState] = useState({
         person: [
             { name: "Anil", age: 12 },
