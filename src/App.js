@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Person from "./Person/Person";
 import Counter from "./Person/Counter";
 import PersonHook from "./Person/PersonHooks";
+import TwoWayDataBinding from "./Person/TwoWayDataBinding";
 
 
 class App extends Component {
@@ -12,7 +13,8 @@ class App extends Component {
   state = {
     persons: [{ name: "BB" }, { name: "Bc" }],
     name: "asas",
-    i: 0
+    i: 0,
+    twoWay: "Hi"
   };
 
   switchNameHandler = () => {
@@ -27,6 +29,12 @@ class App extends Component {
     this.setState({
       persons: [{ name: args + " " + this.state.i }, { name: "Bc" }],
       i: this.state.i + 1
+    });
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      twoWay: e.target.value
     });
   }
 
@@ -52,6 +60,11 @@ class App extends Component {
         <button onClick={() => this.switchNameWithArgs("args2")}>Args 2</button>
         <hr />
         <PersonHook></PersonHook>
+
+        <hr></hr>
+        <h3>Child to parent and two way data-binding</h3>
+        {this.state.twoWay}
+        <TwoWayDataBinding handleChange={this.handleChange} twoWay={this.state.twoWay} />
       </div>
     );
   }
