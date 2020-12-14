@@ -3,6 +3,8 @@ import React, { Component } from "react";
 
 import Person from "./Person/Person";
 import Counter from "./Person/Counter";
+import PersonHook from "./Person/PersonHooks";
+
 
 class App extends Component {
 
@@ -38,6 +40,8 @@ class App extends Component {
         <hr />
         {personMap}
         <button onClick={this.switchNameHandler}>Change Name</button>
+        <hr />
+        <PersonHook></PersonHook>
       </div>
     );
   }
