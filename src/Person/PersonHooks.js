@@ -18,12 +18,20 @@ const PersonHook = () => {
             ]
         });
     }
-    
+
     const personMap = personState.person.map(
-        item => <p key={item.name}>Name: {item.name}, Age: {item.age}</p>
+        item => {
+            if (item.age > 18) {
+                return <p key={item.name}>Name: {item.name}, Age: {item.age}</p>
+            } else {
+                return <p>Person is under age: {item.age}</p>
+            }
+
+        }
+
     );
 
-  
+
     return (
         <div>
             {personMap}
