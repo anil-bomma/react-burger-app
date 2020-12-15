@@ -49,8 +49,11 @@ class App extends Component {
       <Person key={item.name} name={item.name}> map object</Person>
     ));
 
+    const style = {
+      padding: "50px"
+    }
     return (
-      <div className="center">
+      <div style={style}>
         <h1>Hello World!!</h1>
         <p>This is working really</p>
         <hr />
