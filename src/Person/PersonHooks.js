@@ -24,7 +24,7 @@ const PersonHook = () => {
             if (item.age > 18) {
                 return <p key={item.name}>Name: {item.name}, Age: {item.age}</p>
             } else {
-                return <p>Person is under age: {item.age}</p>
+                return <p key={item.name}>Person is under age: {item.age}</p>
             }
 
         }

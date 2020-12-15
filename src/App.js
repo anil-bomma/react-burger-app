@@ -44,9 +44,17 @@ class App extends Component {
     });
   }
 
+  deleteHandler = (index) => {
+    const p = this.state.persons;
+    p.splice(index, 1);
+    this.setState({
+      persons: p
+    });
+  }
+
   render() {
-    const personMap = this.state.persons.map((item) => (
-      <Person key={item.name} name={item.name}> map object</Person>
+    const personMap = this.state.persons.map((item, index) => (
+      <Person key={item.name} name={item.name} deletePar={() => this.deleteHandler(index)}> map object</Person>
     ));
 
     const style = {
@@ -58,8 +66,8 @@ class App extends Component {
         <p>This is working really</p>
         <hr />
         <Person name="Ab" click={this.switchNameWithArgs}>Props Children and child to patent click me!!</Person>
-        <Person name="Ac" />
-        <Person name="Ad" />
+        <Person name="Ac" click={this.switchNameWithArgs} />
+        <Person name="Ad" click={this.switchNameWithArgs} />
         <hr />
         <Counter name="Counter Stricker: " />
         <hr />
