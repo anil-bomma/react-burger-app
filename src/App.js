@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Radium, { StyleRoot } from "radium"; // used to add inline css, pseduo syle an media query
+import styled from 'styled-components'; 
+
 
 import Person from "./Person/Person";
 import Counter from "./Person/Counter";
