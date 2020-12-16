@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Radium, { StyleRoot } from "radium"; // used to add inline css, pseduo syle an media query
 
 import Person from "./Person/Person";
 import Counter from "./Person/Counter";
@@ -60,31 +60,43 @@ class App extends Component {
     const style = {
       padding: "50px"
     }
-    return (
-      <div style={style}>
-        <h1>Hello World!!</h1>
-        <p>This is working really</p>
-        <hr />
-        <Person name="Ab" click={this.switchNameWithArgs}>Props Children and child to patent click me!!</Person>
-        <Person name="Ac" click={this.switchNameWithArgs} />
-        <Person name="Ad" click={this.switchNameWithArgs} />
-        <hr />
-        <Counter name="Counter Stricker: " />
-        <hr />
-        {personMap}
-        <button onClick={this.switchNameHandler}>Change Name</button>
-        <button onClick={this.switchNameWithArgs.bind(this, "args1")}>Args 1</button>
-        <button onClick={() => this.switchNameWithArgs("args2")}>Args 2</button>
-        <hr />
-        <PersonHook></PersonHook>
 
-        <hr></hr>
-        <h3>Child to parent and two way data-binding</h3>
-        {this.state.twoWay}
-        <TwoWayDataBinding handleChangeClick={this.handleChangeClick} handleChange={this.handleChange} twoWay={this.state.twoWay} />
-      </div>
+
+    const btn = {
+      backgroundColor: "green",
+      color: "white",
+      ':hover': {
+        backgroundColor: "lightgreen",
+        color: "black",
+      }
+    }
+    return (
+      <StyleRoot>
+        <div style={style}>
+          <h1>Hello World!!</h1>
+          <p>This is working really</p>
+          <hr />
+          <Person name="Ab" click={this.switchNameWithArgs}>Props Children and child to patent click me!!</Person>
+          <Person name="Ac" click={this.switchNameWithArgs} />
+          <Person name="Ad" click={this.switchNameWithArgs} />
+          <hr />
+          <Counter name="Counter Stricker: " />
+          <hr />
+          {personMap}
+          <button style={btn} onClick={this.switchNameHandler}>Change Name</button>
+          <button onClick={this.switchNameWithArgs.bind(this, "args1")}>Args 1</button>
+          <button onClick={() => this.switchNameWithArgs("args2")}>Args 2</button>
+          <hr />
+          <PersonHook></PersonHook>
+
+          <hr></hr>
+          <h3>Child to parent and two way data-binding</h3>
+          {this.state.twoWay}
+          <TwoWayDataBinding handleChangeClick={this.handleChangeClick} handleChange={this.handleChange} twoWay={this.state.twoWay} />
+        </div>
+      </StyleRoot>
     );
   }
 }
 
-export default App;
+export default Radium(App); // this higger order function
