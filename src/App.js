@@ -8,6 +8,9 @@ import Counter from "./Person/Counter";
 import PersonHook from "./Person/PersonHooks";
 import TwoWayDataBinding from "./Person/TwoWayDataBinding";
 
+// lifecyele methods
+import LifeCycle from "./LifeCycleMethods/LifeCycle";
+
 
 class App extends Component {
 
@@ -75,6 +78,9 @@ class App extends Component {
     return (
       <StyleRoot>
         <div style={style}>
+
+          <LifeCycle></LifeCycle>
+          <hr />
           <h1>{this.props.appName}</h1>
           <p>This is working really</p>
           <hr />
