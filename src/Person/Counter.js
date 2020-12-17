@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import CounterCss from "./Counter.module.css";
 
 class counter extends Component {
     state = {
@@ -6,7 +8,7 @@ class counter extends Component {
     }
     render() {
         return (
-            <div>
+            <div className={CounterCss.bgSalmon}>
                 <h2>{this.props.name} {this.state.count}</h2>
                 <button onClick={() => {
                     this.setState({ count: this.state.count + 1 })
