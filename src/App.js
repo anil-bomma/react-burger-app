@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Radium, { StyleRoot } from "radium"; // used to add inline css, pseduo syle an media query
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 
 
 import Person from "./Person/Person";
@@ -75,7 +75,7 @@ class App extends Component {
     return (
       <StyleRoot>
         <div style={style}>
-          <h1>Hello World!!</h1>
+          <h1>{this.props.appName}</h1>
           <p>This is working really</p>
           <hr />
           <Person name="Ab" click={this.switchNameWithArgs}>Props Children and child to patent click me!!</Person>
