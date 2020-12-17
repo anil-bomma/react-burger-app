@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import CounterCss from "./Counter.module.css";
+import CounterCss from "./Counter.module.css"; // bets wy to handle css 
 
 class counter extends Component {
     state = {
