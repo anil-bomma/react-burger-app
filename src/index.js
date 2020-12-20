@@ -3,9 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
+
+import { createStore } from "redux";
+import reducer from "./store/reducer";
+
+const store = createStore(reducer);
+
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <App appName="AB's React"/>
+    <App appName="AB's React" />
   </React.StrictMode>,
   document.getElementById('root')
 );
