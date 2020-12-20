@@ -30,7 +30,7 @@ class ContainerComponent extends Component {
         return { message: "snpshoot !!" }
     }
 
-    // 6 will execute used last
+    // 6 widly used
     componentDidUpdate(prevProps, prevState, snapshot) {
         console.log('4.6) [ContainerComponent.js] componentDidUpdate');
         console.log("----prevProps: ", prevProps);
