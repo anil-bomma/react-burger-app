@@ -1,4 +1,10 @@
-const reducer = (state = {}, action) => {
+const reducer = (state = { counter: 1 }, action) => {
+    if (action.type == "INCEREMENT") {
+        return {
+            ...state,
+            counter: state.counter + 1
+        }
+    }
     return state;
 }
 

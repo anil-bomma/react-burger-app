@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ContainerComponent from "./ContainerComponent";
 
+import { connect } from "react-redux";
+
 
 class LifeCycle extends Component {
 
@@ -61,6 +63,10 @@ class LifeCycle extends Component {
             <div>
                 <h1> LIFE CYCLE METHODS</h1>
                 <ContainerComponent arr={this.state.arr} remove={(i) => this.deleteFromArr(i)}></ContainerComponent>
+                <hr />
+                <h1>Redux</h1>
+                this.props.ctr --- {this.props.ctr}
+                <button onClick={this.props.onIncrementCounter}>INCEREMENT</button>
             </div>
         )
     }
@@ -68,4 +74,18 @@ class LifeCycle extends Component {
 
 }
 
-export default LifeCycle;
+// get state info as props -- subscription
+const mapStateToProps = state => {
+    return {
+        ctr: state.counter
+    };
+}
+
+// to dispatch actions 
+const mapDispachToProps = dispatch => {
+    return {
+        onIncrementCounter: () => dispatch({ type: 'INCEREMENT' })
+    }
+}
+
+export default connect(mapStateToProps, mapDispachToProps)(LifeCycle);
