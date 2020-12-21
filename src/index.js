@@ -4,12 +4,22 @@ import './index.css';
 import App from './App';
 
 
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 
 import reducer from "./store/reducer";
 
-const store = createStore(reducer);
+
+const middleWare = (store) => {
+  return (next) => {
+    return action => {
+      console.log("Middleware is executed", action);
+      const result = next(action);
+      return result;
+    }
+  }
+}
+const store = createStore(reducer, applyMiddleware(middleWare));
 
 ReactDOM.render(
   <React.StrictMode>
